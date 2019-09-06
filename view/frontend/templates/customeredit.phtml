@@ -54,7 +54,7 @@ $enabled_avatar = $helper->getFieldConfig("enabled_avatar");
         <?php } ?>
         <?php if($enabled_custom_id) { ?>
         <div class="field">
-        <label class="label" for="avatar"><span><?= $block->escapeHtml(__('Customer_Id')) ?></span></label>
+        <label class="label" for="avatar"><span><?= $block->escapeHtml(__('Customer Custom Id')) ?></span></label>
         <div class="control">
             <input type="text" value="<?php echo $customerSession->getCustomer()->getCustomerId();?>" name="customer_id" id="customer_id" data-input="customer_id" class="input-text" />
         </div>
