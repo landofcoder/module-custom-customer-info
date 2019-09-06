@@ -1,0 +1,51 @@
+<fieldset class="fieldset create account" data-hasrequired="<?php /* @escapeNotVerified */
+ ?>">
+    <legend class="legend"><span><?php /* @escapeNotVerified */
+            echo __('Additional Information') ?></span></legend>
+
+    <p>
+    <div class="field twilio_image required">
+        <label for="twilio_image" class="label"><span><?php /* @escapeNotVerified */
+                echo __('Avatar') ?></span></label>
+        <div class="control">
+            <input type="file" name="twilio_image" id="twilio_image" title="<?php /* @escapeNotVerified */
+            echo __('Image') ?>">
+        </div>
+    </div>
+    <div class="field twilio_image required">
+        <label for="facebook" class="label"><span><?= $block->escapeHtml(__('Facebook')) ?></span></label>
+        <div class="control">
+            <input type="text" name="facebook" autocomplete="facebook" id="facebook" value="" class="input-text" data-validate="{required:true}">
+        </div>
+    </div>
+    <div class="field twilio_image required">
+        <label for="job" class="label"><span><?= $block->escapeHtml(__('Job')) ?></span></label>
+        <div class="control">
+            <input type="text" name="job" autocomplete="job" id="job" value="" class="input-text" data-validate="{required:true}">
+        </div>
+    </div>
+    <div class="field twilio_image required">
+        <label for="twitter" class="label"><span><?= $block->escapeHtml(__('Twitter')) ?></span></label>
+        <div class="control">
+            <input type="text" name="twitter" autocomplete="twitter" id="twitter" value="" class="input-text" data-validate="{required:true}">
+        </div>
+    </div>
+    <div class="field twilio_image required">
+        <label for="customer_id" class="label"><span><?= $block->escapeHtml(__('Customer_id')) ?></span></label>
+        <div class="control">
+            <input type="text" name="customer_id" autocomplete="customer_id" id="customer_id" value="" class="input-text" data-validate="{required:true}">
+        </div>
+    </div>
+    <div class="field twilio_image required">
+        <label for="avatar" class="label"><span><?= $block->escapeHtml(__('avatar')) ?></span></label>
+        <div class="control">
+            <input type="text" name="avatar" autocomplete="avatar" id="avatar" value="" class="input-text" data-validate="{required:true}">
+        </div>
+    </div>
+    <div class="field twilio_image required">
+        <label for="bio" class="label"><span><?= $block->escapeHtml(__('Bio')) ?></span></label>
+        <div class="control">
+            <input type="text" name="bio" autocomplete="bio" id="bio" value="" class="input-text" data-validate="{required:true}">
+        </div>
+    </div>
+    </p></fieldset>
