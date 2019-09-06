@@ -71,7 +71,7 @@ class AddTwitterCustomerAttribute implements DataPatchInterface, PatchRevertable
                 'label' => 'twitter',
                 'input' => 'text',
                 'source' => '',
-                'required' => true,
+                'required' => false,
                 'visible' => true,
                 'position' => 333,
                 'system' => false,

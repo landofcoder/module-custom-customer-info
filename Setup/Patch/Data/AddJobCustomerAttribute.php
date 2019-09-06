@@ -71,7 +71,7 @@ class AddJobCustomerAttribute implements DataPatchInterface, PatchRevertableInte
                 'label' => 'job',
                 'input' => 'text',
                 'source' => '',
-                'required' => true,
+                'required' => false,
                 'visible' => true,
                 'position' => 333,
                 'system' => false,

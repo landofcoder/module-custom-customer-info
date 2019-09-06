@@ -1,51 +1,75 @@
-<fieldset class="fieldset create account" data-hasrequired="<?php /* @escapeNotVerified */
- ?>">
+<?php 
+$objm = \Magento\Framework\App\ObjectManager::getInstance();
+$helper = $objm->get('Lof\CustomCustomerInfo\Helper\Data');
+if($helper->isEnabled() && $helper->isEnabledOnEditCustomer()){
+$enabled_facebook = $helper->getFieldConfig("enabled_facebook");
+$enabled_twitter = $helper->getFieldConfig("enabled_twitter");
+$enabled_job = $helper->getFieldConfig("enabled_job");
+$enabled_custom_id = $helper->getFieldConfig("enabled_custom_id");
+$enabled_bio = $helper->getFieldConfig("enabled_bio");
+$enabled_avatar = $helper->getFieldConfig("enabled_avatar");
+?>
+<fieldset class="fieldset create account">
     <legend class="legend"><span><?php /* @escapeNotVerified */
             echo __('Additional Information') ?></span></legend>
 
-    <p>
-    <div class="field twilio_image required">
-        <label for="twilio_image" class="label"><span><?php /* @escapeNotVerified */
+    <?php if($enabled_avatar){ ?>
+    <div class="field account_avatar">
+        <label for="account_avatar" class="label"><span><?php /* @escapeNotVerified */
                 echo __('Avatar') ?></span></label>
         <div class="control">
-            <input type="file" name="twilio_image" id="twilio_image" title="<?php /* @escapeNotVerified */
+            <input type="file" name="avatar" id="account_avatar" title="<?php /* @escapeNotVerified */
             echo __('Image') ?>">
         </div>
     </div>
-    <div class="field twilio_image required">
+    <?php } ?>
+    <?php if($enabled_facebook){ ?>
+    <div class="field account_facebook">
         <label for="facebook" class="label"><span><?= $block->escapeHtml(__('Facebook')) ?></span></label>
         <div class="control">
-            <input type="text" name="facebook" autocomplete="facebook" id="facebook" value="" class="input-text" data-validate="{required:true}">
+            <input type="text" name="facebook" autocomplete="facebook" id="facebook" value="" class="input-text">
         </div>
     </div>
-    <div class="field twilio_image required">
+    <?php } ?>
+    <?php if($enabled_job){ ?>
+    <div class="field account_job">
         <label for="job" class="label"><span><?= $block->escapeHtml(__('Job')) ?></span></label>
         <div class="control">
-            <input type="text" name="job" autocomplete="job" id="job" value="" class="input-text" data-validate="{required:true}">
+            <input type="text" name="job" autocomplete="job" id="job" value="" class="input-text">
         </div>
     </div>
-    <div class="field twilio_image required">
+    <?php } ?>
+    <?php if($enabled_twitter){ ?>
+    <div class="field account_twitter">
         <label for="twitter" class="label"><span><?= $block->escapeHtml(__('Twitter')) ?></span></label>
         <div class="control">
-            <input type="text" name="twitter" autocomplete="twitter" id="twitter" value="" class="input-text" data-validate="{required:true}">
+            <input type="text" name="twitter" autocomplete="twitter" id="twitter" value="" class="input-text">
         </div>
     </div>
-    <div class="field twilio_image required">
+    <?php } ?>
+    <?php if($enabled_customer_id){ ?>
+    <div class="field account_customer_id">
         <label for="customer_id" class="label"><span><?= $block->escapeHtml(__('Customer_id')) ?></span></label>
         <div class="control">
-            <input type="text" name="customer_id" autocomplete="customer_id" id="customer_id" value="" class="input-text" data-validate="{required:true}">
+            <input type="text" name="customer_id" autocomplete="customer_id" id="customer_id" value="" class="input-text">
         </div>
     </div>
-    <div class="field twilio_image required">
+    <?php } ?>
+    <?php if($enabled_facebook){ ?>
+    <div class="field account_facebook">
         <label for="avatar" class="label"><span><?= $block->escapeHtml(__('avatar')) ?></span></label>
         <div class="control">
-            <input type="text" name="avatar" autocomplete="avatar" id="avatar" value="" class="input-text" data-validate="{required:true}">
+            <input type="text" name="avatar" autocomplete="avatar" id="avatar" value="" class="input-text">
         </div>
     </div>
-    <div class="field twilio_image required">
+    <?php } ?>
+    <?php if($enabled_facebook){ ?>
+    <div class="field account_bio">
         <label for="bio" class="label"><span><?= $block->escapeHtml(__('Bio')) ?></span></label>
         <div class="control">
-            <input type="text" name="bio" autocomplete="bio" id="bio" value="" class="input-text" data-validate="{required:true}">
+            <textarea name="bio" id="bio" class="input-text"></textarea>
         </div>
     </div>
-    </p></fieldset>
+    <?php } ?>
+    </fieldset>
+<?php } ?>

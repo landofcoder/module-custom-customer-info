@@ -71,7 +71,7 @@ class AddBioCustomerAttribute implements DataPatchInterface, PatchRevertableInte
                 'label' => 'bio',
                 'input' => 'textarea',
                 'source' => '',
-                'required' => true,
+                'required' => false,
                 'visible' => true,
                 'position' => 333,
                 'system' => false,

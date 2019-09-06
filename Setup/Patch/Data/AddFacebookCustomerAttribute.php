@@ -71,7 +71,7 @@ class AddFacebookCustomerAttribute implements DataPatchInterface, PatchRevertabl
                 'label' => 'facebook',
                 'input' => 'text',
                 'source' => '',
-                'required' => true,
+                'required' => false,
                 'visible' => true,
                 'position' => 333,
                 'system' => false,

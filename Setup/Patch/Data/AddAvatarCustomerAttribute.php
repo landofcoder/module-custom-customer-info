@@ -71,7 +71,7 @@ class AddAvatarCustomerAttribute implements DataPatchInterface, PatchRevertableI
                 'label' => 'avatar',
                 'input' => 'text',
                 'source' => '',
-                'required' => true,
+                'required' => false,
                 'visible' => true,
                 'position' => 333,
                 'system' => false,

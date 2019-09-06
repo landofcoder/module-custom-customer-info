@@ -71,7 +71,7 @@ class AddCustomerIdCustomerAttribute implements DataPatchInterface, PatchReverta
                 'label' => 'customer_id',
                 'input' => 'text',
                 'source' => '',
-                'required' => true,
+                'required' => false,
                 'visible' => true,
                 'position' => 333,
                 'system' => false,

@@ -1,34 +1,65 @@
-<?php $objm = \Magento\Framework\App\ObjectManager::getInstance(); ?>
-<?php $customerSession = $objm->get('Magento\Customer\Model\Session'); ?>
+<?php 
+$objm = \Magento\Framework\App\ObjectManager::getInstance();
+$customerSession = $objm->get('Magento\Customer\Model\Session');
+$helper = $objm->get('Lof\CustomCustomerInfo\Helper\Data');
+if($helper->isEnabled() && $helper->isEnabledOnRegister()){
+$enabled_facebook = $helper->getFieldConfig("enabled_facebook");
+$enabled_twitter = $helper->getFieldConfig("enabled_twitter");
+$enabled_job = $helper->getFieldConfig("enabled_job");
+$enabled_custom_id = $helper->getFieldConfig("enabled_custom_id");
+$enabled_bio = $helper->getFieldConfig("enabled_bio");
+$enabled_avatar = $helper->getFieldConfig("enabled_avatar");
+?>
 <fieldset class="fieldset info">
-?>">
-    <div class="field required">
-        <label class="label" for="facebook"><span><?= $block->escapeHtml(__('Facebook')) ?></span></label>
-        <div class="control">
-            <input type="text" value="<?php echo $customerSession->getCustomer()->getFacebook();?>" name="facebook" id="facebook" data-input="facebook" class="input-text" data-validate="{required:true}" /><br>
+    
+        <?php if($enabled_facebook) { ?>
+        <div class="field">
+            <label class="label" for="facebook"><span><?= $block->escapeHtml(__('Facebook')) ?></span></label>
+            <div class="control">
+                <input type="text" value="<?php echo $customerSession->getCustomer()->getFacebook();?>" name="facebook" id="facebook" data-input="facebook" class="input-text" /><br>
+            </div>
         </div>
-        <br>
-        <label class="label" for="job"><span><?= $block->escapeHtml(__('Job')) ?></span></label>
-        <div class="control">
-            <input type="text" value="<?php echo $customerSession->getCustomer()->getJob();?>" name="job" id="job" data-input="job" class="input-text"  data-validate="{required:true}" /><br>
-        </div><br>
+        <?php } ?>
+        <?php if($enabled_job) { ?>
+        <div class="field">
+            <label class="label" for="job"><span><?= $block->escapeHtml(__('Job')) ?></span></label>
+            <div class="control">
+                <input type="text" value="<?php echo $customerSession->getCustomer()->getJob();?>" name="job" id="job" data-input="job" class="input-text"  /><br>
+            </div>
+        </div>
+        <?php } ?>
+        <?php if($enabled_bio) { ?>
+        <div class="field">
         <label class="label" for="bio"><span><?= $block->escapeHtml(__('Bio')) ?></span></label>
         <div class="control">
-            <input type="text" value="<?php echo $customerSession->getCustomer()->getBio();?>" name="bio" id="bio" data-input="bio" class="input-text"
-               data-validate="{required:true}" />
-        </div><br>
+            <textarea name="bio" id="bio" data-input="bio" class="input-text"><?php echo $customerSession->getCustomer()->getBio();?></textarea>
+        </div>
+        </div>
+        <?php } ?>
+        <?php if($enabled_twitter) { ?>
+        <div class="field">
         <label class="label" for="twitter"><span><?= $block->escapeHtml(__('Twitter')) ?></span></label>
         <div class ="control">
-            <input type="text" value="<?php echo $customerSession->getCustomer()->getTwitter();?>" name="twitter" id="twitter" data-input="twitter" class="input-text"
-               data-validate="{required:true}" />
-        </div><br>
+            <input type="text" value="<?php echo $customerSession->getCustomer()->getTwitter();?>" name="twitter" id="twitter" data-input="twitter" class="input-text"/>
+        </div>
+        </div>
+        <?php } ?>
+        <?php if($enabled_avatar) { ?>
+        <div class="field">
         <label class="label" for="avatar"><span><?= $block->escapeHtml(__('avatar')) ?></span></label>
         <div class="control">
-            <input type="text" value="<?php echo $customerSession->getCustomer()->getavatar();?>" name="avatar" id="avatar" data-input="avatar" class="input-text"
-               data-validate="{required:true}" />
-        </div><br>
+            <input type="text" value="<?php echo $customerSession->getCustomer()->getavatar();?>" name="avatar" id="avatar" data-input="avatar" class="input-text"/>
+        </div>
+        </div>
+        <?php } ?>
+        <?php if($enabled_custom_id) { ?>
+        <div class="field">
         <label class="label" for="avatar"><span><?= $block->escapeHtml(__('Customer_Id')) ?></span></label>
-            <input type="text" value="<?php echo $customerSession->getCustomer()->getavatar();?>" name="customer_id" id="customer_id" data-input="customer_id" class="input-text"
-               data-validate="{required:true}" />
+        <div class="control">
+            <input type="text" value="<?php echo $customerSession->getCustomer()->getCustomerId();?>" name="customer_id" id="customer_id" data-input="customer_id" class="input-text" />
+        </div>
+        </div>
+        <?php } ?>
     </div>
 </fieldset>
+<?php } ?>

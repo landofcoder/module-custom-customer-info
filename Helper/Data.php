@@ -31,6 +31,12 @@ class Data extends AbstractHelper
     /**
      * @param \Magento\Framework\App\Helper\Context $context
      */
+    
+    protected $scopeConfig;
+    const XML_PATH_TAG = 'lofcustomcustomerinfo/';
+    /**
+     * @param \Magento\Framework\App\Helper\Context $context
+     */
     public function __construct(
         \Magento\Framework\App\Helper\Context $context
     ) {
@@ -42,6 +48,46 @@ class Data extends AbstractHelper
      */
     public function isEnabled()
     {
-        return true;
+        if($this->getGeneralConfig("enabled")){
+            return true;
+        }
+        return false;
     }
+    /**
+     * @return bool
+     */
+    public function isEnabledOnRegister()
+    {
+        if($this->getGeneralConfig("enabled_customer_register_page")){
+            return true;
+        }
+        return false;
+    }
+    /**
+     * @return bool
+     */
+    public function isEnabledOnEditCustomer()
+    {
+        if($this->getGeneralConfig("enabled_edit_page")){
+            return true;
+        }
+        return false;
+    }
+    /**
+     * @return bool
+     */
+    public function getConfigValue($field, $storeId = null)
+	{
+		return $this->scopeConfig->getValue(
+			$field, ScopeInterface::SCOPE_STORE, $storeId
+		);
+    }
+	public function getGeneralConfig($code, $storeId = null)
+	{
+		return $this->getConfigValue(self::XML_PATH_TAG .'general/'. $code, $storeId);
+    }
+    public function getFieldConfig($code, $storeId = null)
+	{
+		return $this->getConfigValue(self::XML_PATH_TAG .'custom_fields/'. $code, $storeId);
+	}
 }
