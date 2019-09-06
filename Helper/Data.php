@@ -24,6 +24,9 @@
 namespace Lof\CustomCustomerInfo\Helper;
 
 use Magento\Framework\App\Helper\AbstractHelper;
+use Magento\Framework\App\Config\ScopeConfigInterface;
+use Magento\Store\Model\ScopeInterface;
+use Magento\Framework\App\Helper\Context;
 
 class Data extends AbstractHelper
 {
